@@ -466,8 +466,8 @@ This project is developed under the MIT license.
 
 # Contact
 **Email**: team.foodlens@gmail.com  
-**GitHub**: [Team FoodLens](https://github.com/team-foodlens)  
-**LinkedIn**: [FoodLens Project](https://linkedin.com/company/foodlens)
+**GitHub**: [Team FoodLens](https://github.com/)  
+**LinkedIn**: [FoodLens Project](https://linkedin.com/)
 
 ---
 
