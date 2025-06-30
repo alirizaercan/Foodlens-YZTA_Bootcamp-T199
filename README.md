@@ -149,6 +149,73 @@ Our product backlog is organized using **User Stories** and prioritized based on
 
 ---
 
+## 🗂 On Hold Tasks (General Setup)
+
+These tasks should be added to the "On Hold" list on the board for roadmap and general preparation:
+
+| Task | Tags | Est. Points |
+|------|------|-------------|
+| Set up GitHub repository | #Coding #Urgent | 2 |
+| Define the project name and domain | #Brand #Review | 3 |
+| Identify the target audience | #Marketing #Research | 3 |
+| Conduct literature and competitor research | #Improvement #Marketing | 5 |
+| Create initial logo drafts | #Brand #UI/UX | 3 |
+| Prepare initial UI/UX wireframes | #UI/UX | 5 |
+| Choose development technologies | #Coding #Review | 3 |
+| Assign team roles & responsibilities | #Urgent #Review | 2 |
+| Prepare README.md structure | #Documentation #Urgent | 2 |
+| Set up Trello boards and sprint structure | #Urgent #Improvement | 2 |
+| Schedule weekly meetings | #Review #Urgent | 1 |
+| Define product epics and user stories | #Feature #Review | 5 |
+
+**Total On Hold Points**: 36 points
+
+---
+
+## 📌 Sprint 1 Backlog & To Do
+
+🎯 **Sprint Goal**: Basic Infrastructure Setup and OCR Module Development  
+📅 **Sprint Dates**: June 20 – July 6, 2025  
+🎯 **Expected Points**: 34 Points
+
+### 📌 Backlog (Planned for this Sprint but not started)
+
+| Task | Tags | Est. Points |
+|------|------|-------------|
+| Research and select OCR library | #Coding #Research | 3 |
+| Prepare OCR module structure | #Coding #Feature | 5 |
+| Create basic homepage UI | #UI/UX #Feature | 5 |
+| Implement image upload feature | #Feature #Coding | 3 |
+| Plan folder and code architecture | #Coding #Improvement | 2 |
+| Create .env and config structure | #Coding #Improvement | 2 |
+| Set up CI/CD (GitHub Actions) | #DevOps #Improvement | 2 |
+| Research European Nutri-Score system | #Review #Research | 2 |
+
+### 🛠️ To Do (This week's action items)
+
+| Task | Tags | Est. Points |
+|------|------|-------------|
+| Build OCR pipeline prototype | #Feature #Coding | 5 |
+| Test OCR output with 3 product samples | #Testing #Coding | 3 |
+| Develop result page layout | #UI/UX #Feature | 3 |
+| Create routing between homepage and result page | #Coding #Feature | 2 |
+| Prepare dummy nutrition data for integration | #Improvement #Coding | 2 |
+| Design first burndown chart template | #Improvement #Review | 1 |
+| Conduct internal review of OCR output | #Review #Testing | 1 |
+| Document OCR setup in README | #Documentation #Urgent | 2 |
+
+### 🔢 Sprint 1 Point Breakdown
+
+| Category | Total Points |
+|----------|--------------|
+| UI/UX & Design | 11 |
+| OCR Feature & Coding | 17 |
+| Testing & Documentation | 5 |
+| Research & Review | 1 |
+| **Total** | **34 Points** |
+
+---
+
 ![Sprints](BootcampFiles/general/headers/sprints.png)
 
 <details>
@@ -192,7 +259,7 @@ Our product backlog is organized using **User Stories** and prioritized based on
   <img src="BootcampFiles/sprintOne/burndown/sprint1_burndown.png" style="max-width: 100%; height: auto;">
 </details>
 
-**Expected Points**: 0 points  
+**Expected Points**: 34 points  
 **Completed Points**: 0 points
 
 </details>
