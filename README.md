@@ -133,16 +133,68 @@ FoodLens's target audience consists of the following groups:
 
 Our product backlog is organized using **User Stories** and prioritized based on business value and technical dependencies. Each story is estimated using **Story Points** (Fibonacci sequence: 1, 2, 3, 5, 8, 13, 21).
 
-### **Epic 1: Core Features**
-- **US001**: As a user, I want to [feature description] so that I can [benefit] *(X points)*
+### **User Story  1: Product Scanning and Detailed Analysis**
+- **US001**: As a user, I want to scan product ingredients with my camera to see the product's nutritional values, Nutri-Score, and a general health comment, so I can quickly understand if the product is suitable for me.
 
-### **Epic 2: Advanced Features**  
-- **US002**: As a user, I want to [feature description] so that I can [benefit] *(X points)*
+#### Acceptance Criteria:
 
-### **Epic 3: User Management**
-- **US003**: As a user, I want to [feature description] so that I can [benefit] *(X points)*
+- The application requests camera access and displays the text scanning interface.
 
-**Total Estimated Points**: TBD  
+- OCR (Optical Character Recognition) scans the "ingredients" section and recognizes product information.
+
+- Based on the recognized data, the Nutri-Score and a general health comment (e.g., "Moderately healthy," "Low fat but high in sugar") are displayed.
+
+- The product's total calories, protein, fat, and carbohydrate amounts and percentages are listed.
+
+- If the weight/grammage information cannot be detected from the photo, a pop-up appears asking the user for manual input, and the nutritional values are updated accordingly.
+
+- Food codes (E-codes) are detected; clicking on or hovering over each code displays its explanation or full name.  **(21 points)**
+
+### **User Story 2: Personalized Profile and Smart Alerts**  
+- **US002**:As a user with allergies, I want to create and manage a profile including my personal information (e.g., height, weight, age, gender) and my allergies (e.g., gluten, lactose, nuts) or dietary habits (e.g., vegan, vegetarian, celiac), so the application can analyze scanned products according to my profile and provide personalized alerts and recommendations.
+
+#### Acceptance Criteria:
+
+- The option to register/log in with a username, password, and email is provided.
+
+- The profile page contains editable fields for personal information and dietary preferences.
+
+- When a product conflicting with defined allergens or dietary restrictions in the profile is scanned, a prominent visual alert (e.g., a red banner, "This product contains nuts, and you have a nut allergy!" or "This product is not suitable for your vegan diet!") is displayed.
+  **(13 points)**
+
+### **User Story 3: Progress Tracking and Motivation**
+- **US003**: As a user aiming to get in shape, I want to track my daily or weekly nutrition goals, see my progress, and participate in new challenges to stay motivated, so I can develop sustainable healthy eating habits on my wellness journey.
+
+#### Acceptance Criteria:
+
+- Daily calorie needs are calculated based on profile information, and general nutritional advice is provided with goals like "do not exceed/fall below X calories."
+
+- Daily/weekly nutrition challenges (e.g., "Drink 2 liters of water today," "Consume X calories daily") are listed.
+
+- The user can track their progress when participating in a challenge.  **(8 points)**
+
+### **User Story 4: Smart Recipe Recommendations and Chat**
+- **US004**: As a user, I want to see healthy meal recipes suitable for my profile information and dietary preferences and be able to ask questions about these recipes via a chat interface, so I can discover new and healthy meals aligned with my eating habits.
+
+#### Acceptance Criteria:
+
+- A "Recipes" or "Chat" section is available within the application.
+
+- Personalized recipe recommendations are provided, considering the user's dietary preferences (vegan, gluten-free, etc.) and allergies from their profile.
+
+- Users can ask questions about the presented recipes via the chat interface (e.g., "What can I substitute for this ingredient in this recipe?", "How long does it take to prepare?").  **(13 points)**
+  ### **User Story 5: Smart Recommendation System**
+- **US005**: As a user, if a scanned product is not suitable for me (e.g., unhealthy, contains allergens, or doesn't fit my diet), I want the application to suggest similar and healthier alternative products, so I can easily make better choices.
+
+#### Acceptance Criteria:
+
+- Alternative product suggestions are provided based on the user's profile information and the analysis of the scanned product.
+
+- The suggested alternatives must be suitable for the user's nutritional goals and allergies.
+
+- The user can receive these suggestions by typing into the chat section.  **(13 points)**
+
+**Total Estimated Points**: 68  
 **Product Backlog URL**: [View on Trello](https://trello.com/w/foodlens_)
 
 </details>
