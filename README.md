@@ -431,56 +431,74 @@ These tasks should be added to the "On Hold" list on the board for roadmap and g
 # Used Technologies
 
 ## Frontend
-- **[Framework]**: [Description]
-- **[Language]**: [Description]
-- **[Styling]**: [Description]
-- **[State Management]**: [Description]
+- **React.js**: Modern JavaScript library for building user interfaces with component-based architecture
+- **JavaScript (ES6+)**: Primary programming language for frontend development with modern syntax
+- **CSS3 & Material-UI**: Responsive styling with custom CSS and Material-UI component library for consistent design
+- **Context API + Hooks**: Built-in React state management solution for global application state
 
 ## Backend
-- **[Framework]**: [Description]
-- **[Database]**: [Description]
-- **[Additional Tools]**: [Description]
+- **Flask**: Lightweight Python web framework for building RESTful APIs and web services
+- **PostgreSQL**: Advanced open-source relational database for robust data storage and management
+- **SQLAlchemy**: Python SQL toolkit and Object-Relational Mapping (ORM) for database operations
 
 ## AI/ML
-- **[AI Service]**: [Description]
-- **[ML Library]**: [Description]
+- **OpenAI API**: Advanced AI service for generating intelligent nutrition analysis and personalized recommendations
+- **Tesseract OCR**: Open-source optical character recognition engine for extracting text from product images
+- **scikit-learn**: Machine learning library for data analysis and nutritional scoring algorithms
 
 ## External Services
-- **[Service 1]**: [Description]
-- **[Service 2]**: [Description]
-- **[Deployment]**: [Description]
+- **OpenFoodFacts API**: Global food products database for comprehensive nutritional information
+- **USDA FoodData Central**: Official US nutritional database for accurate food composition data
+- **Google Cloud Vision**: Advanced OCR service for enhanced image text recognition capabilities
 
 ## DevOps
-- **[CI/CD]**: [Description]
-- **[Testing]**: [Description]
-- **[Code Quality]**: [Description]
+- **GitHub Actions**: Automated CI/CD pipeline for continuous integration, testing, and deployment
+- **Docker & Docker Compose**: Containerization platform for consistent development and production environments
+- **pytest & Jest**: Comprehensive testing frameworks for backend Python and frontend JavaScript testing
 
 ---
 
 # Installation and Setup
 
 ## Requirements
-- [Technology] [Version]+
-- [Technology] [Version]+
-- [Additional Requirements]
+- Python 3.8+
+- Node.js 16+
+- PostgreSQL 12+
+- Git
 
 ## Frontend Setup
 ```bash
 cd frontend
-[installation commands]
-[run commands]
+npm install
+cp .env.example .env
+# Edit .env with your configuration
+npm start
 ```
 
 ## Backend Setup
 ```bash
 cd backend
-[installation commands]
-[run commands]
+python -m venv venv
+# Windows: venv\Scripts\activate
+# macOS/Linux: source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+# Edit .env with your database and API configurations
+python app.py
 ```
 
 ## Run with Docker
 ```bash
-[docker commands]
+# Clone the repository
+git clone https://github.com/your-username/foodlens.git
+cd foodlens
+
+# Start all services with Docker Compose
+docker-compose up --build
+
+# Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:5000
 ```
 
 ---
