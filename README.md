@@ -124,7 +124,114 @@ FoodLens's target audience consists of the following groups:
 - **Parents and Families with Children**: Families who care about their children's healthy nutrition
 - **Fitness and Sports Enthusiasts**: Athletes who want to optimize their nutrition programs
 - **Elderly Individuals**: Elderly people seeking nutritional support suitable for their health conditions
+---
+<h2>FoodLens User Personas</h2> 
 
+### 1. Health-Conscious Busy Professional: "Ayşe"
+- 32 years old, Female, Project Manager at a corporate firm, Single, Lives in a big city.
+
+#### Goals:
+- Maintain a **healthy and balanced diet** despite a demanding work schedule.
+- Quickly understand the content of packaged foods.
+- Manage her **allergies (lactose intolerance)**.
+- Stay in shape and feel energetic.
+
+#### Motivations:
+- Time constraints, health awareness, seeking practical solutions, personal well-being.
+
+#### Challenges:
+- Not having enough time to read labels in the supermarket, difficulty finding healthy options when eating out, inability to distinguish allergy-friendly products.
+
+#### Interaction with FoodLens:
+- **Scans product barcodes or ingredients quickly** while grocery shopping to check Nutri-Score and allergen warnings.
+- Looks for quick and healthy dinner recipe suggestions.
+- Asks the chatbot for "lactose-free and practical recipes" when needed.
+
+---
+### 2. New Parent: "Hande"
+- 35 years old, Female, Teacher, Married with 1 child, Lives in a suburb near a rural area.
+
+#### Goals:
+- Ensure his **child eats healthily**.
+- Choose additive-free, natural products for his family.
+- Thoroughly examine the contents of baby foods and snacks.
+- Understand "E-codes" on food labels.
+
+#### Motivations:
+- Child's health, family well-being, food safety, conscious consumption.
+
+#### Challenges:
+- Too many products on the market making it hard to choose correctly, difficulty deciphering complex label information, concerns about additives.
+
+#### Interaction with FoodLens:
+- **Scans the ingredients and reviews E-code explanations** before buying child products.
+- Trusts the app's general health comments and Nutri-Score.
+- Gets suggestions from the chatbot for "low-sugar snack recipes."
+
+---
+### 3. Fitness Enthusiast & Athlete: "Elif"
+- 26 years old, Female, Personal Trainer, Single, Lives near a gym.
+
+#### Goals:
+- Achieve **macro-nutrient goals** suitable for her workouts (high protein, low carb).
+- Precisely track the calorie and nutritional values of foods.
+- Discover new and high-nutrient recipes.
+- Increase muscle mass while decreasing body fat.
+
+#### Motivations:
+- Performance enhancement, disciplined nutrition, results-oriented.
+
+#### Challenges:
+- Difficulty manually calculating macro values for everything she eats, finding sufficient protein sources, getting bored with strict diets.
+
+#### Interaction with FoodLens:
+- **Scans and checks the calorie, protein, fat, and carbohydrate grams** of every product she consumes.
+- Tracks how close she is to her daily calorie target.
+- Uses FoodLens's smart recommendation system for "high-protein, low-fat recipes."
+- Consults the chatbot with questions like "How many calories should I consume today?"
+
+---
+### 4. Budget-Conscious Student: "Deniz"
+- 20 years old, Male, University Student, Aiming for a Master's degree, Lives in a shared student house away from family.
+
+#### Goals:
+- Prepare **healthy and satisfying meals on a limited budget**.
+- Find inexpensive but nutritious products.
+- Improve his cooking skills.
+- Reduce junk food habits.
+
+#### Motivations:
+- Budget management, health, practical meal solutions, independent living.
+
+#### Challenges:
+- Laziness about cooking, perception that healthy eating is expensive, lack of knowledge about finding recipes and selecting ingredients.
+
+#### Interaction with FoodLens:
+- **Scans discounted products** at the market to check their nutritional values.
+- Asks the chatbot for "student-friendly, cheap, and healthy recipes."
+- Evaluates easy recipes with few ingredients.
+- Looks at suggestions for healthier alternative products.
+
+---
+### 5. Individual with a Chronic Illness: "Zeynep"
+- 52 years old, Female, Retired Teacher, Diabetes patient, Lives in a small town.
+
+#### Goals:
+- **Control sugar and carbohydrate intake to manage her diabetes**.
+- Avoid hidden sugars and harmful additives in products.
+- Eat according to her doctor's recommendations.
+- Maintain a healthy lifestyle.
+
+#### Motivations:
+- Disease management, improving quality of life, a long and healthy life.
+
+#### Challenges:
+- Understanding complex terms on product labels, interpreting the effect of nutritional values on her diabetes, finding safe options when eating out.
+
+#### Interaction with FoodLens:
+- **Carefully examines each product's Nutri-Score and especially its carbohydrate/sugar content** during grocery shopping.
+- Enters her diabetes information in the allergy/dietary restrictions section and receives alerts accordingly.
+- Uses the recommendation system and chatbot for "diabetic-friendly, low-carb recipes."
 </details>
 
 ---
