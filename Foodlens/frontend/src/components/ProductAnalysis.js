@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useCallback } from 'react';
 import { Camera, Upload, X, CheckCircle, AlertCircle, Loader2, Eye, EyeOff } from 'lucide-react';
 import { useImageUpload } from '../hooks/useImageUpload';
@@ -341,3 +342,8 @@ const ProductAnalysis = () => {
 };
 
 export default ProductAnalysis;
+=======
+/**
+ * Component for displaying product analysis results and nutritional information
+ */
+>>>>>>> fdd3cedf94404767e3a5728d43eb0c330c6b1ff6

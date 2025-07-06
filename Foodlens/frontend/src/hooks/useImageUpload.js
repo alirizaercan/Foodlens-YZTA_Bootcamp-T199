@@ -1,6 +1,7 @@
 /**
  * Custom hook for image upload and OCR processing
  */
+<<<<<<< HEAD
 
 import { useState } from 'react';
 import { analyzeImage } from '../services/api';
@@ -30,3 +31,5 @@ export const useImageUpload = () => {
     uploadImage,
   };
 };
+=======
+>>>>>>> fdd3cedf94404767e3a5728d43eb0c330c6b1ff6

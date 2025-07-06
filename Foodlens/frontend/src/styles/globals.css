@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
   background-color: #f8fafc;
   color: #1f2937;
   line-height: 1.6;
@@ -285,6 +286,17 @@ main {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
+=======
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+>>>>>>> fdd3cedf94404767e3a5728d43eb0c330c6b1ff6
 }
 
 .btn {
