@@ -1,37 +1,101 @@
 # Flask and Core Dependencies
-Flask==2.3.3
-Flask-CORS==4.0.0
-Flask-JWT-Extended==4.5.3
-Flask-SQLAlchemy==3.0.5
-Flask-Migrate==4.0.5
+Flask==3.0.0
+Flask-CORS==5.0.0
+Flask-JWT-Extended==4.6.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.7
+werkzeug==3.0.1
 
 # Database
-psycopg2-binary==2.9.7
+psycopg2-binary==2.9.9
 
 # Environment Configuration
 python-dotenv==1.0.0
 
-# OCR and Image Processing
-Pillow==10.0.1
+# OCR and Image Processing Libraries
+Pillow==10.2.0
 pytesseract==0.3.10
-opencv-python==4.8.1.78
+opencv-python==4.9.0.80
+easyocr==1.7.1
+python-doctr[torch]==0.8.1
+torch==2.1.2
+torchvision==0.16.2
+scikit-image==0.22.0
+imgaug==0.4.0
+transformers==4.37.0  # For advanced OCR models
+timm==0.9.12  # Vision models for OCR
+pdf2image==1.17.0  # For handling PDF nutrition labels
+tensorflow==2.15.0  # Optional dependency for some OCR improvements
+
+# Computer Vision and Image Processing
+numpy==1.26.3
+opencv-contrib-python==4.9.0.80
+imutils==0.5.4
+albumentations==1.3.1  # Advanced image augmentation
+kornia==0.7.0  # Advanced image transformations
+deskew==0.10.5  # For straightening rotated images
 
 # HTTP Requests and External APIs
 requests==2.31.0
+urllib3==2.1.0
 
 # AI Integration
-google-generativeai==0.3.1
+google-generativeai==0.3.2
 
-# Data Processing
-pandas==2.1.3
-numpy==1.24.3
+# Data Processing and Analysis
+pandas==2.2.0
+numpy==1.26.3
+openpyxl==3.1.2
+xlrd==2.0.1
+chardet==5.2.0
+beautifulsoup4==4.12.3
 
-# Validation
-marshmallow==3.20.1
+# Text Processing and NLP
+regex==2023.12.25
+nltk==3.8.1
+spacy==3.7.2  # Better language processing
+langdetect==1.0.9  # Language detection for multilingual support
+ftfy==6.1.3  # Fixes text for you - handles encoding issues
+
+# Validation and Data Handling
+marshmallow==3.20.2
+jsonschema==4.21.1
+pydantic==2.5.3  # Better data validation
 
 # Security
-bcrypt==4.0.1
+bcrypt==4.1.2
+cryptography==42.0.0
+
+# Machine Learning and AI
+scikit-learn==1.4.0
+scipy==1.12.0
 
 # Development and Testing
-pytest==7.4.3
+pytest==8.0.0
 pytest-flask==1.3.0
+pytest-asyncio==0.23.4
+pytest-cov==4.0.0
+
+# Async and Concurrent Processing
+aiohttp==3.9.1
+aiofiles==23.2.0
+asyncio==3.4.3  # Improved async support
+
+# Logging and Monitoring
+python-json-logger==2.0.7
+structlog==23.2.0  # Better structured logging
+
+# File and System Utils
+pathlib2==2.3.7
+filelock==3.13.1
+
+# Web Scraping (for data collection)
+scrapy==2.11.0
+selenium==4.17.2
+
+# Additional utilities
+tqdm==4.66.1
+colorama==0.4.6
+click==8.1.7
+joblib==1.3.2  # Parallel processing and caching
+cachetools==5.3.2  # Caching for better performance
