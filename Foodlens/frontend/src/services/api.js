@@ -89,9 +89,44 @@ export const searchProducts = async (query, limit = 10) => {
   return await apiRequest(`/api/products/search?q=${encodeURIComponent(query)}&limit=${limit}`);
 };
 
+/**
+ * Get application statistics
+ * @returns {Promise} - App statistics
+ */
+export const getAppStats = async () => {
+  return await apiRequest('/api/stats');
+};
+
+/**
+ * Contact support
+ * @param {Object} contactData - Contact form data
+ * @param {string} contactData.name - User name
+ * @param {string} contactData.email - User email
+ * @param {string} contactData.subject - Message subject
+ * @param {string} contactData.message - Message content
+ * @returns {Promise} - Contact response
+ */
+export const contactSupport = async (contactData) => {
+  return await apiRequest('/api/contact', {
+    method: 'POST',
+    body: JSON.stringify(contactData),
+  });
+};
+
+/**
+ * Check server status
+ * @returns {Promise} - Server status
+ */
+export const getServerStatus = async () => {
+  return await apiRequest('/api/status');
+};
+
 export default {
   apiRequest,
   analyzeImage,
   getHealthCheck,
   searchProducts,
+  getAppStats,
+  contactSupport,
+  getServerStatus,
 };

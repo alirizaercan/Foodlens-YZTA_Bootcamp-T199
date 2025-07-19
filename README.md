@@ -381,6 +381,8 @@ These foundational tasks have been successfully completed during the project ini
 - **✅ Professional Documentation**: Complete setup guides and API documentation
 - **✅ Infrastructure Setup**: Docker containerization, CI/CD pipeline, and environment configuration
 
+
+## Planned General Setup Tasks
 ---
 
 ![Sprints](BootcampFiles/general/headers/sprints.png)
@@ -580,8 +582,86 @@ Sprint 1 has been **successfully completed** with all 43 planned points delivere
 **Completed Points**: 43 points ✅  
 **Success Rate**: 100% 🎯
 
-</details>
+## Sprint 2 Tasks - Database Integration and AI Module
 
+### 📋 General Board Tasks (Sprint 2)
+
+| Task | Tags | Est. Points | Priority |
+|------|------|-------------|----------|
+| Implement advanced OCR pipeline with preprocessing | #Coding #Feature #Urgent | 13 | High |
+| Create SQL database schema design | #Coding #Feature | 8 | High |
+| Integrate 10.5GB nutrition dataset processing | #Coding #Research #Feature | 21 | High |
+| Set up Google Authentication system | #Coding #Feature | 5 | Medium |
+| Design database models for user profiles | #Coding #Feature | 5 | Medium |
+| Create nutrition analysis API endpoints | #Coding #Feature | 8 | Medium |
+| Implement product matching algorithm in the OCR | #Coding #Feature | 13 | High |
+| Set up database migration system | #Coding #DevOps | 3 | Medium |
+| Create data validation and sanitization | #Coding #Testing | 5 | Medium |
+| Implement error handling for OCR pipeline | #Coding #Improvement | 3 | Low |
+| Design API documentation structure | #Documentation #Feature | 3 | Low |
+| Create automated testing for database operations | #Testing #Coding | 5 | Medium |
+
+**Total General Board Points**: 92 Points
+
+### 🎯 Sprint 2 Backlog & To Do Tasks
+**Sprint Goal**: "Database Integration and AI-Powered Analysis System"  
+**Sprint Dates**: July 7 - July 20, 2025  
+**Expected Points**: 55 Points
+
+#### 🔥 High Priority Tasks (Week 1)
+
+| Task | Tags | Est. Points | Details |
+|------|------|-------------|---------|
+| Implement complete OCR pipeline from image | #Coding #Feature #Urgent | 13 | Full implementation of the OCR pipeline shown in the image with preprocessing, grayscale conversion, denoising, and thresholding |
+| Create PostgreSQL database schema | #Coding #Feature | 8 | Design and implement all necessary tables for users, products, nutrition data, and analysis results |
+| Process and integrate 10.5GB nutrition dataset | #Coding #Research #Feature | 21 | Parse, clean, and integrate the massive nutrition dataset for product matching |
+| Implement product matching algorithm | #Coding #Feature | 8 | Create intelligent matching system to identify products from OCR text against database |
+
+#### 🔧 Medium Priority Tasks (Week 2)
+
+| Task | Tags | Est. Points | Details |
+|------|------|-------------|---------|
+| Create user profile SQL models | #Coding #Feature | 5 | Design user, health profile, allergies, and dietary preferences models |
+| Implement Google OAuth integration | #Coding #Feature | 5 | Set up secure Google login system with proper token management |
+| Build nutrition analysis services | #Coding #Feature | 8 | Create backend services for nutritional analysis, scoring, and recommendations |
+| Create API controllers for OCR pipeline | #Coding #Feature | 5 | Implement Flask controllers to handle OCR requests and responses |
+| Implement database connection management | #Coding #DevOps | 3 | Set up SQLAlchemy connections, pooling, and transaction management |
+| Create frontend services for API calls | #Coding #Feature | 5 | Implement frontend service layer to communicate with backend APIs |
+
+#### 🎨 UI/UX Tasks
+
+| Task | Tags | Est. Points | Details |
+|------|------|-------------|---------|
+| Design product analysis result pages | #UI/UX #Feature | 5 | Create responsive pages to display nutritional analysis results |
+| Implement user profile management UI | #UI/UX #Feature | 3 | Design and implement user profile creation and editing interfaces |
+| Create nutrition dashboard wireframes | #UI/UX #Feature | 2 | Design dashboard layouts for nutrition tracking and progress |
+
+#### 🧪 Testing & Quality Assurance
+
+| Task | Tags | Est. Points | Details |
+|------|------|-------------|---------|
+| Test OCR pipeline with various product types | #Testing #Coding | 5 | Test pipeline with different product categories and lighting conditions |
+| Create database integration tests | #Testing #Coding | 3 | Implement comprehensive tests for all database operations |
+| Validate nutrition data accuracy | #Testing #Review | 2 | Verify nutritional calculations and scoring algorithms |
+
+#### 📚 Documentation & DevOps
+
+| Task | Tags | Est. Points | Details |
+|------|------|-------------|---------|
+| Document OCR pipeline implementation | #Documentation #Coding | 2 | Create detailed documentation for the OCR system |
+| Set up database backup and recovery | #DevOps #Improvement | 2 | Implement automated backup system for production database |
+| Create API endpoint documentation | #Documentation #Feature | 1 | Document all API endpoints with examples and parameters |
+
+### 🎯 Sprint 2 Point Breakdown
+
+| Category | Total Points | Percentage |
+|----------|--------------|------------|
+| Core OCR & AI Features | 34 | 62% |
+| Database Integration | 16 | 29% |
+| UI/UX Development | 10 | 18% |
+| Testing & Quality | 10 | 18% |
+| Documentation & DevOps | 5 | 9% |
+| **Total** | **55 Points** | **100%** |
 ---
 
 <details>

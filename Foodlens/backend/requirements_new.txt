@@ -1,0 +1,63 @@
+# Flask and Core Dependencies
+Flask==3.0.0
+Flask-CORS==5.0.0
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.7
+werkzeug==3.0.1
+itsdangerous==2.1.2
+
+# Database
+psycopg2-binary==2.9.9
+
+# Environment Configuration
+python-dotenv==1.0.0
+
+# OCR and Image Processing Libraries
+Pillow==10.2.0
+pytesseract==0.3.10
+opencv-python==4.9.0.80
+
+# HTTP Requests and External APIs
+requests==2.31.0
+
+# AI Integration
+google-generativeai==0.3.2
+
+# Data Processing and Analysis
+pandas==2.2.0
+numpy==1.26.3
+
+# Validation and Security
+cryptography==42.0.2
+email-validator==2.1.0.post1
+bleach==6.1.0
+
+# Testing and Development
+pytest==8.0.0
+pytest-flask==1.3.0
+pytest-cov==4.0.0
+
+# Additional Dependencies
+SQLAlchemy==2.0.25
+marshmallow==3.20.2
+jsonschema==4.21.1
+
+# Additional utilities
+tqdm==4.66.1
+colorama==0.4.6
+click==8.1.7
+beautifulsoup4==4.12.3
+
+# Text Processing and NLP
+regex==2023.12.25
+nltk==3.8.1
+langdetect==1.0.9
+ftfy==6.1.3
+
+# Web Scraping (for data collection)
+scrapy==2.11.0
+selenium==4.17.2
+
+# Additional utilities for performance
+joblib==1.3.2
+cachetools==5.3.2

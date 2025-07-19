@@ -12,7 +12,12 @@ from dotenv import load_dotenv
 from werkzeug.serving import WSGIRequestHandler
 
 # Import controllers
+from controllers.auth_controller import auth_bp
+from controllers.user_controller import user_bp
 from controllers.nutrition_analysis_controller import nutrition_analysis_bp
+from controllers.product_controller import product_bp
+from controllers.analysis_controller import analysis_bp
+from controllers.recommendation_controller import recommendation_bp
 
 # Load environment variables
 load_dotenv()
@@ -40,6 +45,7 @@ def create_app():
     
     # Configuration
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+    app.config['TOKEN_EXPIRES_IN'] = int(os.environ.get('TOKEN_EXPIRES_IN', 86400))  # 24 hours
     app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'static', 'uploads')
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
     
@@ -88,7 +94,12 @@ def create_app():
             return response
     
     # Register blueprints
+    app.register_blueprint(auth_bp, url_prefix='/api/auth')
+    app.register_blueprint(user_bp, url_prefix='/api/users')
     app.register_blueprint(nutrition_analysis_bp, url_prefix='/api/analysis')
+    app.register_blueprint(product_bp, url_prefix='/api/products')
+    app.register_blueprint(analysis_bp, url_prefix='/api/analyses')
+    app.register_blueprint(recommendation_bp, url_prefix='/api/recommendations')
     
     # Health check endpoint
     @app.route('/api/health', methods=['GET'])
@@ -97,10 +108,47 @@ def create_app():
             'status': 'healthy',
             'message': 'FoodLens API is running',
             'version': '1.0.0',
-            'endpoints': [
-                '/api/health',
-                '/api/analysis/analyze'
-            ]
+            'endpoints': {
+                'auth': [
+                    'POST /api/auth/register',
+                    'POST /api/auth/login',
+                    'POST /api/auth/logout',
+                    'POST /api/auth/refresh',
+                    'POST /api/auth/forgot-password',
+                    'POST /api/auth/reset-password'
+                ],
+                'users': [
+                    'GET /api/users/profile',
+                    'PUT /api/users/profile',
+                    'POST /api/users/profile/setup',
+                    'GET /api/users/allergens',
+                    'POST /api/users/allergens',
+                    'DELETE /api/users/allergens/{id}',
+                    'GET /api/users/nutrition-goals',
+                    'POST /api/users/nutrition-goals',
+                    'PUT /api/users/nutrition-goals/{id}'
+                ],
+                'analysis': [
+                    'POST /api/analysis/analyze',
+                    'POST /api/analysis/upload'
+                ],
+                'products': [
+                    'GET /api/products',
+                    'GET /api/products/{id}',
+                    'GET /api/products/search',
+                    'POST /api/products'
+                ],
+                'analyses': [
+                    'GET /api/analyses',
+                    'GET /api/analyses/{id}',
+                    'DELETE /api/analyses/{id}'
+                ],
+                'recommendations': [
+                    'GET /api/recommendations',
+                    'PUT /api/recommendations/{id}/read',
+                    'DELETE /api/recommendations/{id}'
+                ]
+            }
         })
     
     # Serve static files from uploads directory
