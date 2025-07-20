@@ -582,6 +582,28 @@ Sprint 1 has been **successfully completed** with all 43 planned points delivere
 **Completed Points**: 43 points ✅  
 **Success Rate**: 100% 🎯
 
+</details>
+
+---
+
+## Sprint 2 - Database Integration and AI Module ⚠️ PARTIALLY COMPLETED
+**Sprint Dates**: July 7 - July 20, 2025  
+**Team Meeting with Instructors**: July 7, 2025 20:00 ✅  
+**Sprint Report Deadline**: July 20, 2025 23:59 ✅  
+**Sprint Goal**: "Database Integration and AI-Powered Analysis System" ⚠️
+
+### 🎯 Sprint 2 Summary
+Sprint 2 was **partially completed** with 34 out of 55 planned points delivered. The team achieved a 62% completion rate, successfully implementing core database infrastructure and user interface components, while facing challenges with advanced OCR features and authentication systems.
+
+### 📊 Sprint 2 Metrics
+- **Total Points Planned**: 55
+- **Total Points Completed**: 34 (62%)
+- **Tasks Completed**: 18/29
+- **Sprint Duration**: 14 days
+- **Team Velocity**: 2.43 points/day
+- **Major Success Areas**: Database integration (100%), UI/UX development (100%)
+- **Challenge Areas**: OCR pipeline enhancements, authentication systems
+
 ## Sprint 2 Tasks - Database Integration and AI Module
 
 ### 📋 General Board Tasks (Sprint 2)
@@ -662,105 +684,80 @@ Sprint 1 has been **successfully completed** with all 43 planned points delivere
 | Testing & Quality | 10 | 18% |
 | Documentation & DevOps | 5 | 9% |
 | **Total** | **55 Points** | **100%** |
+
 ---
 
-<details>
-  <summary><h1>Sprint 2</h1></summary>
-
-## Sprint 2 - Database Integration and AI Module ⚠️ PARTIALLY COMPLETED
-**Sprint Dates**: July 7 - July 20, 2025  
-**Team Meeting with Instructors**: July 7, 2025 20:00 ✅  
-**Sprint Report Deadline**: July 20, 2025 23:59 ✅  
-**Sprint Goal**: "Database Integration and AI-Powered Analysis System" ⚠️
-
-### 🎯 Sprint 2 Summary
-Sprint 2 was **partially completed** with 34 out of 55 planned points delivered. The team achieved a 62% completion rate, successfully implementing core database infrastructure and user interface components, while facing challenges with advanced OCR features and authentication systems.
-
-### 📊 Sprint 2 Metrics
-- **Total Points Planned**: 55
-- **Total Points Completed**: 34 (62%)
-- **Tasks Completed**: 18/29
-- **Sprint Duration**: 14 days
-- **Team Velocity**: 2.43 points/day
-- **Major Success Areas**: Database integration (100%), UI/UX development (100%)
-- **Challenge Areas**: OCR pipeline enhancements, authentication systems
-
-<details>
-  <summary><h3>🖼️ Sprint 2 - Application Screenshots</h3></summary>
+### 🖼️ Sprint 2 - Application Screenshots
   
-  <table style="width: 100%;">
-    <tr>
-      <td colspan="3" style="text-align: center;"><h4>🗄️ Database Integration & Data Management</h4></td>
-    </tr>
-    <tr>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/PostgreSQL_tables.png" style="max-width: 100%; height: auto;"><br><center><i>PostgreSQL Database Tables</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/creating_tables_command_sql.png" style="max-width: 100%; height: auto;"><br><center><i>SQL Table Creation Commands</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/tables_backend_python_model_files.png" style="max-width: 100%; height: auto;"><br><center><i>Backend Python Model Files</i></center></td>
-    </tr>
-    <tr>
-      <td colspan="3" style="text-align: center;"><h4>👤 User Authentication & Profile Management</h4></td>
-    </tr>
-    <tr>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_light_mode.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication Page - Light Mode</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_dark_mode.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication Page - Dark Mode</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_css_code.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication CSS Implementation</i></center></td>
-    </tr>
-    <tr>
-      <td colspan="3" style="text-align: center;"><h4>🔧 API Integration & Backend Development</h4></td>
-    </tr>
-    <tr>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/main_backend_code_API.png" style="max-width: 100%; height: auto;"><br><center><i>Main Backend API Code</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/frontend_api_code_files.png" style="max-width: 100%; height: auto;"><br><center><i>Frontend API Service Files</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_js_code.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication JavaScript Code</i></center></td>
-    </tr>
-    <tr>
-      <td colspan="3" style="text-align: center;"><h4>📚 Documentation & DevOps</h4></td>
-    </tr>
-    <tr>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/api_documentation.png" style="max-width: 100%; height: auto;"><br><center><i>API Endpoint Documentation</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/ocr_documentation.png" style="max-width: 100%; height: auto;"><br><center><i>OCR System Documentation</i></center></td>
-      <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/database_backup_restore_script_files.png" style="max-width: 100%; height: auto;"><br><center><i>Database Backup & Restore Scripts</i></center></td>
-    </tr>
-  </table>
-</details>
+<table style="width: 100%;">
+  <tr>
+    <td colspan="3" style="text-align: center;"><h4>🗄️ Database Integration & Data Management</h4></td>
+  </tr>
+  <tr>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/PostgreSQL_tables.png" style="max-width: 100%; height: auto;"><br><center><i>PostgreSQL Database Tables</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/creating_tables_command_sql.png" style="max-width: 100%; height: auto;"><br><center><i>SQL Table Creation Commands</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/tables_backend_python_model_files.png" style="max-width: 100%; height: auto;"><br><center><i>Backend Python Model Files</i></center></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align: center;"><h4>👤 User Authentication & Profile Management</h4></td>
+  </tr>
+  <tr>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_light_mode.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication Page - Light Mode</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_dark_mode.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication Page - Dark Mode</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_css_code.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication CSS Implementation</i></center></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align: center;"><h4>🔧 API Integration & Backend Development</h4></td>
+  </tr>
+  <tr>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/main_backend_code_API.png" style="max-width: 100%; height: auto;"><br><center><i>Main Backend API Code</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/frontend_api_code_files.png" style="max-width: 100%; height: auto;"><br><center><i>Frontend API Service Files</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/authentication_page_js_code.jpg" style="max-width: 100%; height: auto;"><br><center><i>Authentication JavaScript Code</i></center></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align: center;"><h4>📚 Documentation & DevOps</h4></td>
+  </tr>
+  <tr>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/api_documentation.png" style="max-width: 100%; height: auto;"><br><center><i>API Endpoint Documentation</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/ocr_documentation.png" style="max-width: 100%; height: auto;"><br><center><i>OCR System Documentation</i></center></td>
+    <td style="width: 33%;"><img src="BootcampFiles/sprintTwo/screenshots/database_backup_restore_script_files.png" style="max-width: 100%; height: auto;"><br><center><i>Database Backup & Restore Scripts</i></center></td>
+  </tr>
+</table>
 
-<details>
-  <summary><h3>📋 Sprint 2 - Sprint Board Evolution</h3></summary>
+### 📋 Sprint 2 - Sprint Board Evolution
   
-  <h4>🚀 Sprint Board Progression</h4>
-  <table style="width: 100%;">
-    <tr>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>Initial Sprint 2 Board Setup</i></center></td>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>Final Sprint 2 Completion</i></center></td>
-    </tr>
-  </table>
-  
-  <h4>📊 General Board Management</h4>
-  <table style="width: 100%;">
-    <tr>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_general_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 2 Raw</i></center></td>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_general_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 2 Completed</i></center></td>
-    </tr>
-  </table>
-  
-  <h4>🏷️ Project Organization</h4>
-  <table style="width: 100%;">
-    <tr>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/label_tags.png" style="max-width: 100%; height: auto;"><br><center><i>Label Tags System</i></center></td>
-      <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/board_plan_meeting.png" style="max-width: 100%; height: auto;"><br><center><i>Board Planning Meeting</i></center></td>
-    </tr>
-  </table>
-</details>
+#### 🚀 Sprint Board Progression
+<table style="width: 100%;">
+  <tr>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>Initial Sprint 2 Board Setup</i></center></td>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>Final Sprint 2 Completion</i></center></td>
+  </tr>
+</table>
 
-<details>
-  <summary><h3>📈 Sprint 2 - Burndown Chart Analysis</h3></summary>
+#### 📊 General Board Management
+<table style="width: 100%;">
+  <tr>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_general_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 2 Raw</i></center></td>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/2nd_sprint_general_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 2 Completed</i></center></td>
+  </tr>
+</table>
+
+#### 🏷️ Project Organization
+<table style="width: 100%;">
+  <tr>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/label_tags.png" style="max-width: 100%; height: auto;"><br><center><i>Label Tags System</i></center></td>
+    <td style="width: 50%;"><img src="BootcampFiles/sprintTwo/boardUpdate/board_plan_meeting.png" style="max-width: 100%; height: auto;"><br><center><i>Board Planning Meeting</i></center></td>
+  </tr>
+</table>
+
+### 📈 Sprint 2 - Burndown Chart Analysis
   
-  <div style="text-align: center;">
-    <img src="BootcampFiles/sprintTwo/burndown/burndown_chart.png" style="max-width: 80%; height: auto;">
-    <br><i>Sprint 2 Burndown Chart - Partial Completion with Strong Database Focus</i>
-  </div>
-  
-  <h4>📊 Burndown Analysis</h4>
+<div style="text-align: center;">
+  <img src="BootcampFiles/sprintTwo/burndown/burndown_chart.png" style="max-width: 80%; height: auto;">
+  <br><i>Sprint 2 Burndown Chart - Partial Completion with Strong Database Focus</i>
+</div>
+
+#### 📊 Burndown Analysis
   <table style="width: 100%;">
     <tr>
       <th>Phase</th>
@@ -859,8 +856,6 @@ Sprint 2 was **partially completed** with 34 out of 55 planned points delivered.
 | Core OCR & AI Features | 34 | 13 | ⚠️ 38% |
 | Testing & Quality | 10 | 3 | ⚠️ 30% |
 | **Total** | **55 Points** | **34 Points** | **⚠️ 62%** |
-
-</details>
 
 ---
 
