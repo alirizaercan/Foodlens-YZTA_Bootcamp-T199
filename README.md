@@ -859,50 +859,294 @@ Sprint 2 was **partially completed** with 34 out of 55 planned points delivered.
 
 ---
 
+## Sprint 3 - OCR Enhancement and User Authentication ⏳ IN PROGRESS
+**Sprint Dates**: July 21 - August 3, 2025  
+**Team Meeting with Instructors**: July 21, 2025 20:00 ✅  
+**Sprint Report Deadline**: August 3, 2025 23:59  
+**Product Delivery Deadline**: August 3, 2025 23:59  
+**Sprint Goal**: "OCR Optimization, User Authentication & Allergen Detection System" 🎯
+
+### 🎯 Sprint 3 Summary
+Sprint 3 focuses on **completing the core MVP functionality** by enhancing OCR accuracy, implementing user authentication, and building the allergen detection system. This sprint will deliver a working prototype with user-specific allergen warnings and improved product analysis capabilities.
+
+### 📊 Sprint 3 Metrics
+- **Total Points Planned**: 50
+- **Carried Forward from Sprint 2**: 21 points
+- **New Development**: 29 points
+- **Sprint Duration**: 14 days
+- **Target Completion Rate**: 100%
+- **Core Focus**: OCR improvements, user system, allergen detection
+
+## Sprint 3 Tasks - OCR Enhancement and User Authentication
+
+### 📋 General Board Tasks (Sprint 3)
+
+| Task | Tags | Est. Points | Priority | Status |
+|------|------|-------------|----------|---------|
+| **Carried Forward from Sprint 2** |
+| Enhance OCR pipeline with advanced preprocessing | #Coding #Feature #Urgent | 13 | Critical | 🔄 In Progress |
+| Implement product matching algorithm | #Coding #Feature #Urgent | 13 | Critical | 📋 To Do |
+| Complete Google OAuth authentication system | #Coding #Feature | 5 | High | 📋 To Do |
+| Build nutrition analysis backend services | #Coding #Feature | 8 | High | 📋 To Do |
+| Create OCR API controllers | #Coding #Feature | 5 | High | 📋 To Do |
+| Test OCR with various product types | #Testing #Coding | 5 | Medium | 📋 To Do |
+| Implement OCR error handling | #Coding #Improvement | 3 | Medium | 📋 To Do |
+| Validate nutrition data accuracy | #Testing #Review | 2 | Medium | 📋 To Do |
+| **New Sprint 3 Tasks** |
+| Create user allergen detection system | #Coding #Feature #Urgent | 8 | Critical | 📋 To Do |
+| Implement settings page with allergen management | #UI/UX #Feature | 5 | High | 📋 To Do |
+| Build allergen warning notifications | #Coding #Feature | 5 | High | 📋 To Do |
+| Optimize OCR result processing | #Coding #Improvement | 3 | High | 📋 To Do |
+| Create user session management | #Coding #Feature | 3 | High | 📋 To Do |
+| Implement product quality analysis | #Coding #Feature | 5 | Medium | 📋 To Do |
+| Build prototype testing framework | #Testing #Coding | 3 | Medium | 📋 To Do |
+| Create comprehensive API documentation | #Documentation #Feature | 2 | Low | 📋 To Do |
+
+**Total General Board Points**: 92 Points
+
+### 🎯 Sprint 3 Backlog & To Do Tasks
+**Sprint Goal**: "OCR Optimization, User Authentication & Allergen Detection System"  
+**Sprint Dates**: July 21 - August 3, 2025  
+**Expected Points**: 50 Points
+
+#### 🔥 Critical Priority Tasks (Week 1)
+
+| Task | Tags | Est. Points | Details | Status |
+|------|------|-------------|---------|---------|
+| Enhance OCR pipeline with image preprocessing | #Coding #Feature #Urgent | 13 | Improve OCR accuracy with advanced image preprocessing: grayscale conversion, noise reduction, contrast enhancement, and text region detection | 🔄 In Progress |
+| Implement intelligent product matching algorithm | #Coding #Feature #Urgent | 13 | Create robust algorithm to match OCR extracted text with nutrition database using fuzzy matching and similarity scoring | 📋 To Do |
+| Create user allergen detection and warning system | #Coding #Feature #Urgent | 8 | Build backend system to cross-reference user allergen profiles with scanned product ingredients and trigger warnings | 📋 To Do |
+
+#### 🔧 High Priority Tasks (Week 1-2)
+
+| Task | Tags | Est. Points | Details | Status |
+|------|------|-------------|---------|---------|
+| Complete Google OAuth authentication integration | #Coding #Feature | 5 | Finish Google OAuth implementation with secure token management and user session handling | 📋 To Do |
+| Build comprehensive nutrition analysis services | #Coding #Feature | 8 | Create backend services for Nutri-Score calculation, nutritional analysis, and health recommendations | 📋 To Do |
+| Implement settings page with allergen management | #UI/UX #Feature | 5 | Design and develop user settings page allowing users to manage their allergen profiles and dietary preferences | 📋 To Do |
+| Create OCR API controllers and endpoints | #Coding #Feature | 5 | Implement Flask API controllers to handle OCR processing requests and return structured results | 📋 To Do |
+| Build allergen warning notification system | #Coding #Feature | 5 | Create frontend and backend components to display allergen warnings when conflicting ingredients are detected | 📋 To Do |
+
+#### 🎨 UI/UX Enhancement Tasks
+
+| Task | Tags | Est. Points | Details | Status |
+|------|------|-------------|---------|---------|
+| Optimize OCR result display interface | #UI/UX #Improvement | 3 | Enhance the OCR results page with better formatting, ingredient highlighting, and allergen indicators | 📋 To Do |
+| Implement user session management UI | #Coding #UI/UX | 3 | Create user login/logout interface and session state management across the application | 📋 To Do |
+| Design allergen warning modal components | #UI/UX #Feature | 2 | Create visually prominent modal dialogs and notifications for allergen warnings | 📋 To Do |
+
+#### 🧪 Testing & Quality Optimization
+
+| Task | Tags | Est. Points | Details | Status |
+|------|------|-------------|---------|---------|
+| Test OCR pipeline with diverse product categories | #Testing #Coding | 5 | Comprehensive testing with various product types, lighting conditions, and image qualities | 📋 To Do |
+| Implement product quality analysis improvements | #Coding #Feature | 5 | Enhance existing product analysis algorithms for better accuracy and user insights | 📋 To Do |
+| Create prototype testing and validation framework | #Testing #Coding | 3 | Build comprehensive testing suite for the complete user workflow from OCR to allergen detection | 📋 To Do |
+| Validate nutrition data accuracy and consistency | #Testing #Review | 2 | Verify nutritional calculations, Nutri-Score accuracy, and database consistency | 📋 To Do |
+
+#### 📚 System Integration & Documentation
+
+| Task | Tags | Est. Points | Details | Status |
+|------|------|-------------|---------|---------|
+| Optimize OCR error handling and recovery | #Coding #Improvement | 3 | Implement robust error handling for OCR failures, poor image quality, and network issues | 📋 To Do |
+| Create comprehensive API documentation | #Documentation #Feature | 2 | Document all API endpoints, authentication flows, and integration guidelines | 📋 To Do |
+| Implement system performance monitoring | #DevOps #Improvement | 2 | Add monitoring for OCR processing times, database query performance, and user session metrics | 📋 To Do |
+
+### 🎯 Sprint 3 Point Breakdown
+
+| Category | Total Points | Percentage | Focus Area |
+|----------|--------------|------------|------------|
+| OCR Enhancement & Processing | 21 | 42% | Core OCR improvements and product matching |
+| User Authentication & Management | 13 | 26% | Google OAuth and user session management |
+| Allergen Detection System | 13 | 26% | User allergen profiles and warning system |
+| Testing & Quality Assurance | 10 | 20% | Comprehensive testing and validation |
+| Documentation & Monitoring | 4 | 8% | System documentation and performance monitoring |
+| **Total** | **50 Points** | **100%** | **Complete MVP Prototype** |
+
+### 🏆 Sprint 3 Success Criteria
+
+#### 🎯 MVP Prototype Completion
+- **✅ Functional OCR System**: Enhanced OCR pipeline with high accuracy product text extraction
+- **✅ User Authentication**: Complete Google OAuth integration with secure user sessions
+- **✅ Allergen Detection**: Real-time allergen warning system based on user profiles
+- **✅ Settings Management**: User-friendly settings page for allergen and dietary preference management
+- **✅ Product Analysis**: Improved nutrition analysis with quality scoring and recommendations
+
+#### 🔍 Technical Achievements
+- **OCR Accuracy Target**: >90% text extraction accuracy on product labels
+- **Response Time Goal**: <3 seconds for complete OCR-to-analysis workflow
+- **User Experience**: Seamless authentication and allergen management flow
+- **Database Integration**: Efficient user data storage and retrieval
+- **Error Handling**: Robust error recovery and user feedback systems
+
+#### 📱 Prototype Validation
+- **End-to-End Testing**: Complete user workflow from registration to allergen detection
+- **Multi-Product Testing**: Validation with diverse product categories and ingredients
+- **User Interface Testing**: Responsive design and accessibility compliance
+- **Performance Testing**: System performance under various load conditions
+- **Security Testing**: Authentication security and data protection validation
+
+**Expected Points**: 50 points  
+**Completed Points**: 0 points ⏳  
+**Success Rate**: 0% (In Progress) 🚧  
+**Carried Forward from Sprint 2**: 21 points
+
+---
+
 <details>
   <summary><h1>Sprint 3</h1></summary>
 
-## Sprint 3 - Final Developments and Testing
+## Sprint 3 - OCR Enhancement and User Authentication ⏳ IN PROGRESS
 **Sprint Dates**: July 21 - August 3, 2025  
-**Team Meeting with Instructors**: July 21, 2025 20:00  
+**Team Meeting with Instructors**: July 21, 2025 20:00 ✅  
 **Sprint Report Deadline**: August 3, 2025 23:59  
 **Product Delivery Deadline**: August 3, 2025 23:59  
-**Sprint Goal**: "User Experience Improvements and System Optimization"
+**Sprint Goal**: "OCR Optimization, User Authentication & Allergen Detection System" 🎯
 
 <details>
-  <summary><h3>Sprint 3 - Application Screenshots</h3></summary>
+  <summary><h3>🖼️ Sprint 3 - Application Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
-      <td colspan="4" style="text-align: center;"><h4>Advanced Features</h4></td>
+      <td colspan="3" style="text-align: center;"><h4>🔧 OCR Enhancement & Product Matching</h4></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/advanced_search.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/barcode_scanner.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/meal_planning.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/enhanced_ocr_pipeline.png" style="max-width: 100%; height: auto;"><br><center><i>Enhanced OCR Processing Pipeline</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/product_matching_algorithm.png" style="max-width: 100%; height: auto;"><br><center><i>Product Matching Algorithm</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/ocr_accuracy_improvements.png" style="max-width: 100%; height: auto;"><br><center><i>OCR Accuracy Improvements</i></center></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h4>Reporting and Analytics</h4></td>
+      <td colspan="3" style="text-align: center;"><h4>👤 User Authentication & Session Management</h4></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/nutrition_dashboard.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/progress_tracking.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="BootcampFiles/sprintThree/screenshots/weekly_report.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/google_oauth_integration.png" style="max-width: 100%; height: auto;"><br><center><i>Google OAuth Integration</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/user_session_management.png" style="max-width: 100%; height: auto;"><br><center><i>User Session Management</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/login_logout_interface.png" style="max-width: 100%; height: auto;"><br><center><i>Login/Logout Interface</i></center></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><h4>⚠️ Allergen Detection & Warning System</h4></td>
+    </tr>
+    <tr>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/allergen_detection_system.png" style="max-width: 100%; height: auto;"><br><center><i>Allergen Detection System</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/allergen_warning_notifications.png" style="max-width: 100%; height: auto;"><br><center><i>Allergen Warning Notifications</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/settings_allergen_management.png" style="max-width: 100%; height: auto;"><br><center><i>Settings & Allergen Management</i></center></td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;"><h4>📊 Prototype Testing & Validation</h4></td>
+    </tr>
+    <tr>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/prototype_testing_framework.png" style="max-width: 100%; height: auto;"><br><center><i>Prototype Testing Framework</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/end_to_end_testing.png" style="max-width: 100%; height: auto;"><br><center><i>End-to-End Testing</i></center></td>
+      <td style="width: 33%;"><img src="BootcampFiles/sprintThree/screenshots/performance_monitoring.png" style="max-width: 100%; height: auto;"><br><center><i>Performance Monitoring</i></center></td>
     </tr>
   </table>
 </details>
 
 <details>
-  <summary><h3>Sprint 3 - Sprint Board Updates</h3></summary>
-  <img src="BootcampFiles/sprintThree/boardUpdate/final_board.png" style="max-width: 100%; height: auto;">
+  <summary><h3>📋 Sprint 3 - Sprint Board Evolution</h3></summary>
+  
+  <h4>🚀 Sprint Board Progression</h4>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/3rd_sprint_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>Initial Sprint 3 Board Setup</i></center></td>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/3rd_sprint_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>Final Sprint 3 Completion</i></center></td>
+    </tr>
+  </table>
+  
+  <h4>📊 General Board Management</h4>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/3rd_sprint_general_board_raw.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 3 Raw</i></center></td>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/3rd_sprint_general_board_completed.png" style="max-width: 100%; height: auto;"><br><center><i>General Board - Sprint 3 Completed</i></center></td>
+    </tr>
+  </table>
+  
+  <h4>🏷️ Final Project Organization</h4>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/final_project_board.png" style="max-width: 100%; height: auto;"><br><center><i>Final Project Board</i></center></td>
+      <td style="width: 50%;"><img src="BootcampFiles/sprintThree/boardUpdate/prototype_completion_status.png" style="max-width: 100%; height: auto;"><br><center><i>Prototype Completion Status</i></center></td>
+    </tr>
+  </table>
 </details>
 
 <details>
-  <summary><h3>Sprint 3 - Burndown Chart</h3></summary>
-  <img src="BootcampFiles/sprintThree/burndown/sprint3_burndown.png" style="max-width: 100%; height: auto;">
+  <summary><h3>📈 Sprint 3 - Burndown Chart Analysis</h3></summary>
+  
+  <div style="text-align: center;">
+    <img src="BootcampFiles/sprintThree/burndown/sprint3_burndown_chart.png" style="max-width: 80%; height: auto;">
+    <br><i>Sprint 3 Burndown Chart - MVP Prototype Completion</i>
+  </div>
+  
+  <h4>📊 Burndown Analysis</h4>
+  <table style="width: 100%;">
+    <tr>
+      <th>Phase</th>
+      <th>Period</th>
+      <th>Strategy</th>
+      <th>Expected Result</th>
+    </tr>
+    <tr>
+      <td>🔍 <strong>OCR Enhancement</strong></td>
+      <td>July 21 - July 24</td>
+      <td>Focus on OCR pipeline improvements and product matching</td>
+      <td>Enhanced OCR accuracy and robust product identification</td>
+    </tr>
+    <tr>
+      <td>👤 <strong>User Authentication</strong></td>
+      <td>July 25 - July 28</td>
+      <td>Complete Google OAuth and user session management</td>
+      <td>Secure user authentication and profile management</td>
+    </tr>
+    <tr>
+      <td>⚠️ <strong>Allergen Detection</strong></td>
+      <td>July 29 - July 31</td>
+      <td>Build allergen detection and warning system</td>
+      <td>Real-time allergen warnings for user safety</td>
+    </tr>
+    <tr>
+      <td>🧪 <strong>Testing & Validation</strong></td>
+      <td>August 1 - August 3</td>
+      <td>Comprehensive testing and prototype validation</td>
+      <td>Complete MVP prototype ready for delivery</td>
+    </tr>
+  </table>
+  
+  <div style="text-align: center; margin-top: 20px;">
+    <img src="BootcampFiles/sprintThree/burndown/sprint3_detailed_burndown.png" style="max-width: 80%; height: auto;">
+    <br><i>Detailed Sprint 3 Burndown Visualization</i>
+  </div>
 </details>
 
-**Expected Points**: 0 points  
-**Completed Points**: 0 points
+### 🌟 Sprint 3 Expected Achievements
+
+1. **🔬 Enhanced OCR System**
+   - Advanced image preprocessing pipeline
+   - >90% text extraction accuracy
+   - Intelligent product matching algorithm
+
+2. **👤 Complete User Management**
+   - Google OAuth authentication
+   - Secure user session handling
+   - User profile and settings management
+
+3. **⚠️ Allergen Detection System**
+   - Real-time allergen cross-referencing
+   - User-specific warning notifications
+   - Comprehensive allergen management
+
+4. **🎨 Improved User Experience**
+   - Enhanced settings page
+   - Intuitive allergen management interface
+   - Responsive warning modal components
+
+5. **🧪 Comprehensive Testing**
+   - End-to-end prototype validation
+   - Multi-product category testing
+   - Performance and security testing
+
+**Expected Points**: 50 points  
+**Target Completion**: 100% 🎯  
+**MVP Prototype**: Complete and functional ✨
 
 </details>
 
