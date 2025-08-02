@@ -168,6 +168,18 @@ export const getAuthHeaders = () => {
   return token ? { 'Authorization': `Bearer ${token}` } : {};
 };
 
+/**
+ * Google OAuth authentication
+ * @param {string} googleToken - Google OAuth token
+ * @returns {Promise} - Authentication response
+ */
+export const googleAuth = async (googleToken) => {
+  return await apiRequest('/api/auth/google', {
+    method: 'POST',
+    body: JSON.stringify({ token: googleToken }),
+  });
+};
+
 export default {
   register,
   login,
@@ -179,4 +191,5 @@ export default {
   getUserData,
   isAuthenticated,
   getAuthHeaders,
+  googleAuth,
 };

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import LoadingSpinner from '../components/LoadingSpinner';
 import GoogleIcon from '../components/GoogleIcon';
-import ForgotPasswordModal from '../components/ForgotPasswordModal';
 import { toast } from 'react-hot-toast';
 import '../styles/AuthenticationPage.css';
 import foodlensLogo from '../assets/images/foodlens.png';
@@ -13,7 +12,6 @@ const AuthenticationPage = ({ onSuccess }) => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [showForgotPassword, setShowForgotPassword] = useState(false);
   
   const { login, register, googleLogin } = useAuth();
 
@@ -31,103 +29,6 @@ const AuthenticationPage = ({ onSuccess }) => {
   });
 
   const [errors, setErrors] = useState({});
-
-  // Google OAuth setup
-  useEffect(() => {
-    // Only load Google OAuth if we have proper client ID configured
-    const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-    
-    if (!clientId || clientId === 'your-google-client-id.apps.googleusercontent.com') {
-      console.log('Google OAuth not configured - using demo mode');
-      return;
-    }
-
-    // Load Google OAuth script
-    const loadGoogleScript = () => {
-      if (window.google) {
-        initializeGoogleAuth();
-        return;
-      }
-      
-      const script = document.createElement('script');
-      script.src = 'https://accounts.google.com/gsi/client';
-      script.async = true;
-      script.defer = true;
-      script.onload = initializeGoogleAuth;
-      script.onerror = () => {
-        console.error('Failed to load Google OAuth script');
-      };
-      document.head.appendChild(script);
-    };
-
-    const initializeGoogleAuth = () => {
-      if (window.google && window.google.accounts) {
-        try {
-          // Initialize for both ID token and access token flows
-          window.google.accounts.id.initialize({
-            client_id: clientId,
-            callback: handleGoogleCredentialResponse,
-            auto_select: false,
-            cancel_on_tap_outside: true
-          });
-          console.log('Google OAuth initialized successfully');
-        } catch (error) {
-          console.error('Google OAuth initialization error:', error);
-        }
-      }
-    };
-
-    loadGoogleScript();
-  }, []);
-
-  const handleGoogleCredentialResponse = async (response) => {
-    try {
-      await handleGoogleAuth(response.credential);
-    } catch (error) {
-      console.error('Google credential response error:', error);
-      toast.error('Google authentication failed');
-    }
-  };
-
-  const handleGoogleSignIn = () => {
-    if (window.google && window.google.accounts && process.env.REACT_APP_GOOGLE_CLIENT_ID !== 'your-google-client-id.apps.googleusercontent.com') {
-      // Use Google OAuth popup for sign in
-      window.google.accounts.oauth2.initTokenClient({
-        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        scope: 'email profile',
-        callback: (response) => {
-          if (response.access_token) {
-            handleGoogleAuth(response.access_token);
-          }
-        }
-      }).requestAccessToken();
-    } else {
-      // For development/testing when Google credentials are not configured
-      console.log('Google OAuth not configured, using demo token for testing');
-      toast.info('Demo Google Sign In - Using test authentication');
-      handleGoogleAuth('demo-google-token-signin');
-    }
-  };
-
-  const handleGoogleSignUp = () => {
-    if (window.google && window.google.accounts && process.env.REACT_APP_GOOGLE_CLIENT_ID !== 'your-google-client-id.apps.googleusercontent.com') {
-      // Use Google OAuth popup for sign up
-      window.google.accounts.oauth2.initTokenClient({
-        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        scope: 'email profile',
-        callback: (response) => {
-          if (response.access_token) {
-            handleGoogleAuth(response.access_token);
-          }
-        }
-      }).requestAccessToken();
-    } else {
-      // For development/testing when Google credentials are not configured
-      console.log('Google OAuth not configured, using demo token for testing');
-      toast.info('Demo Google Sign Up - Using test authentication');
-      handleGoogleAuth('demo-google-token-signup');
-    }
-  };
 
   const handleSignInChange = (e) => {
     const { name, value } = e.target;
@@ -228,25 +129,17 @@ const AuthenticationPage = ({ onSuccess }) => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     
-    console.log('Sign up form data:', signUpForm);
-    
-    if (!validateSignUpForm()) {
-      console.log('Form validation failed');
-      return;
-    }
+    if (!validateSignUpForm()) return;
     
     setLoading(true);
     
     try {
-      console.log('Calling register function...');
       const result = await register(signUpForm);
-      console.log('Register result:', result);
       
       if (result.success) {
         toast.success('Account created successfully!');
         onSuccess && onSuccess(result.user, true);
       } else {
-        console.log('Registration failed:', result);
         if (result.details && Array.isArray(result.details)) {
           result.details.forEach(error => toast.error(error));
         } else {
@@ -282,7 +175,8 @@ const AuthenticationPage = ({ onSuccess }) => {
   };
 
   const handleForgotPassword = () => {
-    setShowForgotPassword(true);
+    // TODO: Implement forgot password functionality
+    toast.info('Forgot password functionality will be implemented soon!');
   };
 
   const toggleMode = () => {
@@ -382,9 +276,11 @@ const AuthenticationPage = ({ onSuccess }) => {
 
             <button
               type="button"
-              id="google-signin-button"
               className="auth-button google"
-              onClick={handleGoogleSignIn}
+              onClick={() => {
+                // TODO: Implement Google OAuth integration
+                handleGoogleAuth('demo-google-token');
+              }}
             >
               <GoogleIcon size={20} />
               Sign In with Google
@@ -402,9 +298,11 @@ const AuthenticationPage = ({ onSuccess }) => {
           <form onSubmit={handleSignUp} className="auth-form">
             <button
               type="button"
-              id="google-signup-button"
               className="auth-button google"
-              onClick={handleGoogleSignUp}
+              onClick={() => {
+                // TODO: Implement Google OAuth integration
+                handleGoogleAuth('demo-google-token');
+              }}
             >
               <GoogleIcon size={20} />
               Sign Up with Google
@@ -504,12 +402,6 @@ const AuthenticationPage = ({ onSuccess }) => {
           </form>
         )}
       </div>
-
-      {/* Forgot Password Modal */}
-      <ForgotPasswordModal
-        isOpen={showForgotPassword}
-        onClose={() => setShowForgotPassword(false)}
-      />
     </div>
   );
 };

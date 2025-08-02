@@ -79,18 +79,19 @@ class AuthValidator(BaseValidator):
             if not required_check['is_valid']:
                 return required_check
             
-            # Validate email format
-            valid = validate_email(email)
+            # Simple email format validation with regex
+            email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+            if not re.match(email_pattern, email):
+                return {
+                    'is_valid': False,
+                    'error': 'Invalid email format'
+                }
+            
             return {
                 'is_valid': True,
-                'sanitized_email': valid.email
+                'sanitized_email': email
             }
             
-        except EmailNotValidError as e:
-            return {
-                'is_valid': False,
-                'error': f'Invalid email format: {str(e)}'
-            }
         except Exception as e:
             return {
                 'is_valid': False,
@@ -108,24 +109,18 @@ class AuthValidator(BaseValidator):
             }
         
         # Length check
-        if len(password) < 8:
-            errors.append('Password must be at least 8 characters long')
+        if len(password) < 6:
+            errors.append('Password must be at least 6 characters long')
         
         if len(password) > 128:
             errors.append('Password must be no more than 128 characters long')
         
-        # Complexity checks
-        if not re.search(r'[A-Z]', password):
-            errors.append('Password must contain at least one uppercase letter')
-        
-        if not re.search(r'[a-z]', password):
-            errors.append('Password must contain at least one lowercase letter')
+        # Basic complexity checks (at least one letter and one number)
+        if not re.search(r'[A-Za-z]', password):
+            errors.append('Password must contain at least one letter')
         
         if not re.search(r'\d', password):
             errors.append('Password must contain at least one number')
-        
-        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
-            errors.append('Password must contain at least one special character')
         
         # Common password check
         common_passwords = [

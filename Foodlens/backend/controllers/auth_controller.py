@@ -141,3 +141,77 @@ def verify_token():
         'user': request.current_user,
         'message': 'Token is valid'
     })
+
+@auth_bp.route('/google', methods=['POST'])
+def google_auth():
+    """Google OAuth authentication endpoint."""
+    try:
+        data = request.get_json()
+        if not data or not data.get('token'):
+            return jsonify({
+                'success': False,
+                'error': 'Google token is required'
+            }), 400
+        
+        result = auth_service.google_login(data['token'])
+        
+        if result['success']:
+            status_code = 200 if not result.get('is_new_user') else 201
+            return jsonify(result), status_code
+        else:
+            return jsonify(result), 401
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Google authentication failed: {str(e)}'
+        }), 500
+
+@auth_bp.route('/forgot-password', methods=['POST'])
+def forgot_password():
+    """Send password reset email."""
+    try:
+        data = request.get_json()
+        if not data or not data.get('email'):
+            return jsonify({
+                'success': False,
+                'error': 'Email is required'
+            }), 400
+        
+        result = auth_service.request_password_reset(data['email'])
+        
+        # Always return success to prevent email enumeration
+        return jsonify({
+            'success': True,
+            'message': 'If an account with this email exists, a password reset link has been sent.'
+        }), 200
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Password reset request failed: {str(e)}'
+        }), 500
+
+@auth_bp.route('/reset-password', methods=['POST'])
+def reset_password():
+    """Reset password with token."""
+    try:
+        data = request.get_json()
+        if not data or not data.get('token') or not data.get('new_password'):
+            return jsonify({
+                'success': False,
+                'error': 'Reset token and new password are required'
+            }), 400
+        
+        result = auth_service.reset_password(data['token'], data['new_password'])
+        
+        if result['success']:
+            return jsonify(result), 200
+        else:
+            return jsonify(result), 400
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Password reset failed: {str(e)}'
+        }), 500

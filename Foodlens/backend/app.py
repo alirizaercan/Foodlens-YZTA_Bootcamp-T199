@@ -49,47 +49,31 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'static', 'uploads')
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
     
+    # Google OAuth Configuration
+    app.config['GOOGLE_CLIENT_ID'] = os.environ.get('GOOGLE_CLIENT_ID')
+    app.config['GOOGLE_CLIENT_SECRET'] = os.environ.get('GOOGLE_CLIENT_SECRET')
+    
     # Ensure upload directory exists
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     
-    # CORS configuration
+    # CORS configuration - Use only one method to avoid duplicate headers
     CORS(app, resources={
         r"/*": {
-            "origins": "*",
-            "methods": "*",
-            "allow_headers": "*",
-            "supports_credentials": True,
-            "expose_headers": "*"
+            "origins": ["http://localhost:3000", "http://127.0.0.1:3000"],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
+            "supports_credentials": True
         }
     })
-    
-    # Add CORS headers to all responses
-    @app.after_request
-    def after_request(response):
-        origin = request.headers.get('Origin')
-        if origin:
-            response.headers.add('Access-Control-Allow-Origin', origin)
-        else:
-            response.headers.add('Access-Control-Allow-Origin', '*')
-        
-        response.headers.add('Access-Control-Allow-Headers', '*')
-        response.headers.add('Access-Control-Allow-Methods', '*')
-        response.headers.add('Access-Control-Allow-Credentials', 'true')
-        response.headers.add('Access-Control-Expose-Headers', '*')
-        
-        # Remove CSP header or allow HTTP
-        response.headers.pop('Content-Security-Policy', None)
-        
-        return response
     
     # Handle preflight OPTIONS requests
     @app.before_request
     def handle_preflight():
         if request.method == "OPTIONS":
             response = make_response()
-            response.headers.add("Access-Control-Allow-Origin", "*")
-            response.headers.add('Access-Control-Allow-Headers', "*")
-            response.headers.add('Access-Control-Allow-Methods', "*")
+            response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+            response.headers.add('Access-Control-Allow-Headers', "Content-Type, Authorization")
+            response.headers.add('Access-Control-Allow-Methods', "GET, POST, PUT, DELETE, OPTIONS")
             response.headers.add('Access-Control-Allow-Credentials', 'true')
             return response
     

@@ -189,6 +189,21 @@ export const getUserDashboard = async () => {
   });
 };
 
+/**
+ * Update user basic information (name, username, etc.)
+ * @param {Object} basicData - Basic user information to update
+ * @returns {Promise} - Update response
+ */
+export const updateUserBasicInfo = async (basicData) => {
+  return await apiRequest('/api/users/settings/basic', {
+    method: 'PUT',
+    headers: {
+      ...getAuthHeaders(),
+    },
+    body: JSON.stringify(basicData),
+  });
+};
+
 export default {
   getUserProfile,
   updateUserProfile,
@@ -202,4 +217,5 @@ export default {
   updateNutritionGoal,
   deleteNutritionGoal,
   getUserDashboard,
+  updateUserBasicInfo,
 };

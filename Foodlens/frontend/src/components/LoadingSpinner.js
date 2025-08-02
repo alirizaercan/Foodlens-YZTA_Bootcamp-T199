@@ -1,7 +1,6 @@
 /**
  * Loading spinner component for async operations
  */
-<<<<<<< HEAD
 import React from 'react';
 
 const LoadingSpinner = ({ message = 'Loading...', size = 'medium' }) => {
@@ -22,5 +21,3 @@ const LoadingSpinner = ({ message = 'Loading...', size = 'medium' }) => {
 };
 
 export default LoadingSpinner;
-=======
->>>>>>> fdd3cedf94404767e3a5728d43eb0c330c6b1ff6

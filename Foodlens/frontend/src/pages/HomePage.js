@@ -1,21 +1,105 @@
-import React, { useState } from 'react';
-import { Camera, Upload, X, AlertCircle, Loader2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Camera, Upload, X, AlertCircle, Loader2, Menu, User, Settings, LogOut, LogIn } from 'lucide-react';
 import { analyzeImage } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 import NutriScoreDisplay from '../components/NutriScoreDisplay';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { toast } from 'react-hot-toast';
 import '../styles/HomePage.css';
 import foodlensLogo from '../assets/images/foodlens.png';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { user, isAuthenticated, logout } = useAuth();
+  
+  // Get language from URL params
+  const [language, setLanguage] = useState(() => {
+    const params = new URLSearchParams(location.search);
+    return params.get('lang') || 'tr';
+  });
+  
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
-  const [language, setLanguage] = useState('tr');
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState(null);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false;
+  });
   
   const fileInputRef = React.useRef(null);
   const cameraInputRef = React.useRef(null);
+
+  // Update language when URL changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const urlLang = params.get('lang');
+    if (urlLang && urlLang !== language) {
+      setLanguage(urlLang);
+    }
+  }, [location.search, language]);
+
+  // Apply dark mode to body
+  useEffect(() => {
+    document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  const handleDarkModeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+    toast.success(
+      language === 'tr' 
+        ? (!isDarkMode ? 'Karanlık tema aktif' : 'Açık tema aktif')
+        : (!isDarkMode ? 'Dark mode enabled' : 'Light mode enabled')
+    );
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success(language === 'tr' ? 'Başarıyla çıkış yapıldı!' : 'Successfully logged out!');
+      setShowProfileMenu(false);
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
+
+  const handleLanguageChange = async (newLanguage) => {
+    setLanguage(newLanguage);
+    
+    // Update URL with new language
+    const currentPath = location.pathname;
+    navigate(`${currentPath}?lang=${newLanguage}`, { replace: true });
+    
+    // Save language preference to database if user is authenticated
+    if (isAuthenticated && user) {
+      try {
+        // We'll add this API call to save language preference
+        // await userService.updateLanguagePreference(newLanguage);
+        toast.success(
+          newLanguage === 'tr' 
+            ? 'Dil tercihiniz kaydedildi' 
+            : 'Language preference saved'
+        );
+      } catch (error) {
+        console.error('Error saving language preference:', error);
+      }
+    }
+    
+    // Show welcome message in new language
+    setTimeout(() => {
+      toast.success(
+        newLanguage === 'tr' 
+          ? 'Türkçe diline geçildi' 
+          : 'Switched to English'
+      );
+    }, 100);
+  };
 
   const handleImageSelect = (file) => {
     setSelectedImage(file);
@@ -280,9 +364,196 @@ const HomePage = () => {
   if (!selectedImage) {
     return (
       <div className="homepage">
-        <div className="logo-container">
-          <img src={foodlensLogo} alt="FoodLens Logo" className="foodlens-logo" />
+        {/* Navigation Header */}
+        <div className="homepage-header">
+          <div className="logo-container">
+            <img src={foodlensLogo} alt="FoodLens Logo" className="foodlens-logo" />
+          </div>
+          
+          <div className="header-controls">
+            {/* Language Selector */}
+            <div className="language-selector-container">
+              <select
+                value={language}
+                onChange={(e) => handleLanguageChange(e.target.value)}
+                className="language-selector"
+                aria-label="Select Language"
+              >
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="en">🇺🇸 English</option>
+              </select>
+            </div>
+
+            {/* Dark Mode Toggle */}
+            <div className="dark-mode-toggle">
+              <label className="switch">
+                <input 
+                  type="checkbox" 
+                  checked={isDarkMode}
+                  onChange={handleDarkModeToggle}
+                />
+                <span className="slider round"></span>
+              </label>
+              <span className="dark-mode-label">
+                {language === 'tr' ? 'Karanlık Tema' : 'Dark Mode'}
+              </span>
+            </div>
+
+            {/* Authentication/Profile Section */}
+            {isAuthenticated ? (
+              <div className="user-menu">
+                <button 
+                  className="user-profile-btn"
+                  onClick={() => setShowProfileMenu(!showProfileMenu)}
+                  aria-label="User profile menu"
+                >
+                  <div className="user-avatar">
+                    <User size={18} />
+                  </div>
+                  <div className="user-info">
+                    <span className="user-name">
+                      {user?.first_name ? `${user.first_name}` : user?.username || 'User'}
+                    </span>
+                    <span className="user-role">Premium</span>
+                  </div>
+                  <div className="dropdown-arrow">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </button>
+                
+                {showProfileMenu && (
+                  <div className="user-dropdown-menu">
+                    <div className="dropdown-header">
+                      <div className="user-avatar-large">
+                        <User size={20} />
+                      </div>
+                      <div className="user-details">
+                        <span className="user-full-name">
+                          {user?.first_name && user?.last_name 
+                            ? `${user.first_name} ${user.last_name}`
+                            : user?.username || 'User Name'
+                          }
+                        </span>
+                        <span className="user-email">{user?.email}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="dropdown-divider"></div>
+                    
+                    <div className="dropdown-menu-items">
+                      <button 
+                        className="dropdown-menu-item"
+                        onClick={() => {
+                          navigate(`/profile-setup?lang=${language}`);
+                          setShowProfileMenu(false);
+                        }}
+                      >
+                        <User size={16} />
+                        <span>{language === 'tr' ? 'Profil' : 'Profile'}</span>
+                      </button>
+                      
+                      <button 
+                        className="dropdown-menu-item"
+                        onClick={() => {
+                          navigate(`/settings?lang=${language}`);
+                          setShowProfileMenu(false);
+                        }}
+                      >
+                        <Settings size={16} />
+                        <span>{language === 'tr' ? 'Ayarlar' : 'Settings'}</span>
+                      </button>
+                      
+                      <div className="dropdown-divider"></div>
+                      
+                      <button 
+                        className="dropdown-menu-item logout-item"
+                        onClick={handleLogout}
+                      >
+                        <LogOut size={16} />
+                        <span>{language === 'tr' ? 'Çıkış Yap' : 'Sign out'}</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button 
+                className="auth-btn-primary"
+                onClick={() => {
+                  navigate('/auth');
+                  setShowMenu(false);
+                }}
+              >
+                <LogIn size={18} />
+                <span>{language === 'tr' ? 'Giriş Yap' : 'Sign In'}</span>
+              </button>
+            )}
+
+            {/* Menu Button */}
+            <button 
+              className="menu-toggle-btn"
+              onClick={() => setShowMenu(!showMenu)}
+              aria-label="Toggle menu"
+            >
+              <Menu size={20} />
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {showMenu && (
+          <>
+            <div className="mobile-menu-overlay" onClick={() => setShowMenu(false)}></div>
+            <div className="mobile-menu-sidebar">
+              <div className="mobile-menu-header">
+                <img src={foodlensLogo} alt="FoodLens" className="menu-logo" />
+                <button 
+                  className="menu-close-btn"
+                  onClick={() => setShowMenu(false)}
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <div className="mobile-menu-content">
+                <div className="menu-section">
+                  <h4 className="menu-section-title">{language === 'tr' ? 'Keşfet' : 'Explore'}</h4>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">📱</span>
+                    <span>{language === 'tr' ? 'Ürün Analizi' : 'Product Analysis'}</span>
+                  </button>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">🍳</span>
+                    <span>{language === 'tr' ? 'Tarifler' : 'Recipes'}</span>
+                  </button>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">🤖</span>
+                    <span>{language === 'tr' ? 'AI Asistan' : 'AI Assistant'}</span>
+                  </button>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">🎯</span>
+                    <span>{language === 'tr' ? 'Hedeflerim' : 'My Goals'}</span>
+                  </button>
+                </div>
+                
+                <div className="menu-section">
+                  <h4 className="menu-section-title">{language === 'tr' ? 'Bilgi' : 'Information'}</h4>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">ℹ️</span>
+                    <span>{language === 'tr' ? 'Hakkımızda' : 'About Us'}</span>
+                  </button>
+                  <button className="menu-item-modern">
+                    <span className="menu-icon">📞</span>
+                    <span>{language === 'tr' ? 'İletişim' : 'Contact'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
         <div className="main-card">
           <div className="header-section">
             <h2 className="main-title">
@@ -294,17 +565,6 @@ const HomePage = () => {
                 : 'Take a photo or upload an image of the product label for OCR text recognition and Nutri-Score analysis.'
               }
             </p>
-            
-            <div className="language-selector">
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value)}
-                className="language-select"
-              >
-                <option value="tr">Türkçe</option>
-                <option value="en">English</option>
-              </select>
-            </div>
           </div>
 
           <div className="action-buttons">
@@ -355,22 +615,122 @@ const HomePage = () => {
   // Interface when image is selected
   return (
     <div className="homepage">
-      <div className="logo-container">
-        <img src={foodlensLogo} alt="FoodLens Logo" className="foodlens-logo" />
+      {/* Navigation Header */}
+      <div className="homepage-header">
+        <div className="logo-container">
+          <img src={foodlensLogo} alt="FoodLens Logo" className="foodlens-logo" />
+        </div>
+        
+        <div className="header-controls">
+          {/* Language Selector */}
+          <div className="language-selector-container">
+            <select
+              value={language}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              className="language-selector"
+              aria-label="Select Language"
+            >
+              <option value="tr">🇹🇷 Türkçe</option>
+              <option value="en">🇺🇸 English</option>
+            </select>
+          </div>
+
+          {/* Authentication/Profile Section */}
+          {isAuthenticated ? (
+            <div className="user-menu">
+              <button 
+                className="user-profile-btn"
+                onClick={() => setShowProfileMenu(!showProfileMenu)}
+                aria-label="User profile menu"
+              >
+                <div className="user-avatar">
+                  <User size={18} />
+                </div>
+                <div className="user-info">
+                  <span className="user-name">
+                    {user?.first_name ? `${user.first_name}` : user?.username || 'User'}
+                  </span>
+                  <span className="user-role">Premium</span>
+                </div>
+                <div className="dropdown-arrow">
+                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </button>
+              
+              {showProfileMenu && (
+                <div className="user-dropdown-menu">
+                  <div className="dropdown-header">
+                    <div className="user-avatar-large">
+                      <User size={20} />
+                    </div>
+                    <div className="user-details">
+                      <span className="user-full-name">
+                        {user?.first_name && user?.last_name 
+                          ? `${user.first_name} ${user.last_name}`
+                          : user?.username || 'User Name'
+                        }
+                      </span>
+                      <span className="user-email">{user?.email}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="dropdown-divider"></div>
+                  
+                  <div className="dropdown-menu-items">
+                    <button 
+                      className="dropdown-menu-item"
+                      onClick={() => {
+                        navigate(`/profile-setup?lang=${language}`);
+                        setShowProfileMenu(false);
+                      }}
+                    >
+                      <User size={16} />
+                      <span>{language === 'tr' ? 'Profil' : 'Profile'}</span>
+                    </button>
+                    
+                    <button 
+                      className="dropdown-menu-item"
+                      onClick={() => {
+                        navigate(`/settings?lang=${language}`);
+                        setShowProfileMenu(false);
+                      }}
+                    >
+                      <Settings size={16} />
+                      <span>{language === 'tr' ? 'Ayarlar' : 'Settings'}</span>
+                    </button>
+                    
+                    <div className="dropdown-divider"></div>
+                    
+                    <button 
+                      className="dropdown-menu-item logout-item"
+                      onClick={handleLogout}
+                    >
+                      <LogOut size={16} />
+                      <span>{language === 'tr' ? 'Çıkış Yap' : 'Sign out'}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button 
+              className="auth-btn-primary"
+              onClick={() => navigate('/auth')}
+            >
+              <LogIn size={18} />
+              <span>{language === 'tr' ? 'Giriş Yap' : 'Sign In'}</span>
+            </button>
+          )}
+        </div>
       </div>
+
       <div className="main-card">
         <div className="header-section">
           <h2 className="main-title">
             {language === 'tr' ? 'Ürün Analizi' : 'Product Analysis'}
           </h2>
-          <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="language-select"
-          >
-            <option value="tr">Türkçe</option>
-            <option value="en">English</option>
-          </select>
         </div>
 
         <div className="image-preview">

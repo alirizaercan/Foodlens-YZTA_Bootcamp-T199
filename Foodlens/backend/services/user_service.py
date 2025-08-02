@@ -229,6 +229,49 @@ class UserService:
             return {'success': False, 'error': f'Failed to retrieve allergens: {str(e)}'}
         finally:
             self.db.close(session)
+
+    def update_user_basic_info(self, user_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
+        """Update user's basic information (name, username, etc.)."""
+        session = self.db.connect()
+        try:
+            user = session.query(User).filter(User.id == user_id).first()
+            if not user:
+                return {'success': False, 'error': 'User not found'}
+            
+            # Update allowed fields
+            if 'first_name' in data:
+                user.first_name = data['first_name'].strip() if data['first_name'] else None
+            
+            if 'last_name' in data:
+                user.last_name = data['last_name'].strip() if data['last_name'] else None
+                
+            if 'username' in data:
+                new_username = data['username'].strip()
+                # Check if username is already taken by another user
+                existing_user = session.query(User).filter(
+                    User.username == new_username,
+                    User.id != user_id
+                ).first()
+                
+                if existing_user:
+                    return {'success': False, 'error': 'Username is already taken'}
+                
+                user.username = new_username
+            
+            user.updated_at = datetime.utcnow()
+            session.commit()
+            
+            return {
+                'success': True,
+                'message': 'Basic information updated successfully',
+                'user': user.to_dict()
+            }
+            
+        except Exception as e:
+            session.rollback()
+            return {'success': False, 'error': f'Failed to update basic information: {str(e)}'}
+        finally:
+            self.db.close(session)
     
     def get_nutrition_goals(self, user_id: str) -> Dict[str, Any]:
         """Get user's nutrition goals."""

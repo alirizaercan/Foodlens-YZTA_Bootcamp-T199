@@ -236,3 +236,25 @@ def get_available_allergens():
             'success': False,
             'error': f'Failed to retrieve available allergens: {str(e)}'
         }), 500
+
+@user_bp.route('/settings/basic', methods=['PUT'])
+@require_auth
+@validate_json
+def update_user_basic_info():
+    """Update user's basic information (name, username, etc.)."""
+    try:
+        user_id = request.current_user['id']
+        data = request.get_json()
+        
+        result = user_service.update_user_basic_info(user_id, data)
+        
+        if result['success']:
+            return jsonify(result), 200
+        else:
+            return jsonify(result), 400
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Failed to update basic information: {str(e)}'
+        }), 500
